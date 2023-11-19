@@ -1,0 +1,17 @@
+<div class="g-app">
+  <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container" (mouseenter)="open()" (mouseleave)="close()">
+    <h1>Electric Circuit Solver</h1>
+  </div>
+ 
+  <div class="g-circuit-container">
+    <canvas class="g-canvas" id="circuitCanvas" #circuitCanvas width="400" height="300"
+            (mousedown)="onMouseDown($event)"
+            (mousemove)="onMouseMove($event)"
+            (mouseup)="onMouseUp()"
+            (drop)="onDrop($event)"
+            (dragover)="allowDrop($event)">
+    </canvas>
+  </div>
+  <grot-resistor class="g-resistor-draggable" draggable="true" (resistorDragging)="handleResistorDragging($event)"></grot-resistor>
+  <grot-voltage-source class="g-voltage-source-draggable" draggable="true" (voltageSourceDragging)="handleVoltageSourceDragging($event)"></grot-voltage-source>
+</div>
